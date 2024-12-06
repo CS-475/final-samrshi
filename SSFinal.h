@@ -26,7 +26,6 @@ class SSFinal : public GFinal {
         int count
     );
 
-    
     /// Returns an instance to a shader that will proxy to a "realShader", and transform
     /// its output using the GColorMatrix provided.
     ///
@@ -37,6 +36,14 @@ class SSFinal : public GFinal {
     virtual std::shared_ptr<GShader> createColorMatrixShader(
         const GColorMatrix&,
         GShader* realShader
+    );
+
+    /// The vornoi shader is defined by an array of points, each with an associated color.
+    /// The color any any (x,y) is the color of the closest point from the array.
+    virtual std::shared_ptr<GShader> createVoronoiShader(
+        const GPoint points[],
+        const GColor colors[],
+        int count
     );
 };
 
