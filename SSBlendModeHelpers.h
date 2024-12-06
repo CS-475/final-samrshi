@@ -27,6 +27,14 @@ static inline GPixel colorToPixelOpaque(const GColor& color) {
     return GPixel_PackARGB(a, r, g, b);
 }
 
+static inline GColor pixelToColor(const GPixel& pixel) {
+    float r = (float) GPixel_GetR(pixel) / 255.0f;
+    float g = (float) GPixel_GetG(pixel) / 255.0f;
+    float b = (float) GPixel_GetB(pixel) / 255.0f;
+    float a = (float) GPixel_GetA(pixel) / 255.0f;
+    return GColor::RGBA(r, g, b, a);
+}
+
 // MARK: Blend Modes
 
 static inline unsigned divBy255(unsigned n) {

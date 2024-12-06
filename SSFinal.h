@@ -25,6 +25,19 @@ class SSFinal : public GFinal {
         const float pos[],
         int count
     );
+
+    
+    /// Returns an instance to a shader that will proxy to a "realShader", and transform
+    /// its output using the GColorMatrix provided.
+    ///
+    /// Note: the GColorMatrix is defined to operate on unpremul GColors
+    ///
+    /// Note: the resulting colors (after applying the colormatrix) may be out of bounds
+    ///       for color componets. If this happens they should be clamped to legal values.
+    virtual std::shared_ptr<GShader> createColorMatrixShader(
+        const GColorMatrix&,
+        GShader* realShader
+    );
 };
 
 #endif
