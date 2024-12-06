@@ -45,6 +45,15 @@ class SSFinal : public GFinal {
         const GColor colors[],
         int count
     );
+
+    ///  Return a sweep-gradient shader, centered at 'center', starting wiht color[0] at  startRadians
+    ///  and ending with colors[count-1] at startRadians+2pi. The colors are distributed evenly around the sweep.
+    virtual std::shared_ptr<GShader> createSweepGradient(
+        GPoint center,
+        float startRadians,
+        const GColor colors[],
+        int count
+    );
 };
 
 #endif
