@@ -28,10 +28,12 @@ static inline GPixel colorToPixelOpaque(const GColor& color) {
 }
 
 static inline GColor pixelToColor(const GPixel& pixel) {
-    float r = (float) GPixel_GetR(pixel) / 255.0f;
-    float g = (float) GPixel_GetG(pixel) / 255.0f;
-    float b = (float) GPixel_GetB(pixel) / 255.0f;
     float a = (float) GPixel_GetA(pixel) / 255.0f;
+    if (a == 0) return GColor::RGBA(0, 0, 0, 0);
+
+    float r = ((float) GPixel_GetR(pixel) / 255.0f) / a;
+    float g = ((float) GPixel_GetG(pixel) / 255.0f) / a;
+    float b = ((float) GPixel_GetB(pixel) / 255.0f) / a;
     return GColor::RGBA(r, g, b, a);
 }
 
