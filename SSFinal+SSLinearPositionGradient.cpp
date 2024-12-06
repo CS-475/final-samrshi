@@ -70,7 +70,7 @@ public:
     void shadeRow(int x, int y, int rowWidth, GPixel row[]) override {
         for (int i = 0; i < rowWidth; i++) {
             // Convert device coordinate to unit space
-            GPoint devicePoint = { x + i + 0.5, y + 0.5 };
+            GPoint devicePoint = { x + i + 0.5f, y + 0.5f };
             GPoint unitPoint = inverseMatrix * devicePoint;
 
             // Clamp unit x to 0...1
