@@ -1,0 +1,10 @@
+.vscode/
+diff/
+image
+tests
+bench
+dbench
+draw
+pa?_*.png
+*.dSYM
+*.exe
